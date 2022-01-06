@@ -10,32 +10,32 @@ class Thermostat {
   }
 
   up() {
-    if (this.temperature<this.maxTemperature){
+    if (this.temperature < this.maxTemperature) {
     this.temperature++;
   }
 }
 
   down() {
-   if (this.temperature>this.minTemperature){
+   if (this.temperature > this.minTemperature) {
     this.temperature--;
   }}
 
   setPowerSavingMode(set) {
-    if (set == true){
-      this.maxTemperature = 25
+    if (set) {
+      this.maxTemperature = 25;
     }else {
-      this.maxTemperature = 32
+      this.maxTemperature = 32;
     }
   }
 
   reset() {
-    this.temperature = 20
+    this.temperature = 20;
   }
 
   energyUse() {
-    if (this.temperature< 18){
+    if (this.temperature < 18) {
       return 'low-usage'
-    }else if(this.temperature <= 25){
+    }else if(this.temperature <= 25) {
       return 'medium-usage'
     }else {
       return 'high-usage'}
