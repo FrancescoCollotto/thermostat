@@ -46,4 +46,22 @@ describe('Thermostat', () => {
     }
     expect(thermostat.getTemperature()).toBe(10);
   })
+
+  it('should print a low energy usage', () => {
+    expect(thermostat.energyUse()).toBe('low-usage')
+  })
+
+  it('should print medium energy usage', () => {
+    for (let i = 0 ; i < 10 ; i++){
+      thermostat.up();
+    }
+    expect(thermostat.energyUse()).toBe('medium-usage')
+  })
+
+  it('should print high energy usage', () => {
+    for (let i = 0 ; i < 10 ; i++){
+      thermostat.up();
+    }
+    expect(thermostat.energyUse()).toBe('high-usage')
+  })
 })
