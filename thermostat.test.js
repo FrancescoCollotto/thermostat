@@ -22,4 +22,20 @@ describe('Thermostat', () => {
     }
     expect(thermostat.getTemperature()).toBe(25);
   })
+
+  it('should have a maximum temperature of 32 when PSM is off', () => {
+    thermostat.setPowerSavingMode(false)
+    for (let i = 0 ; i < 10 ; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getTemperature()).toBe(32);
+  })
+
+  it('should reset temperature to 20', () => {
+    for (let i = 0 ; i < 10 ; i++) {
+      thermostat.up();
+    }
+    thermostat.reset()
+    expect(thermostat.getTemperature()).toBe(20);
+  })
 })
