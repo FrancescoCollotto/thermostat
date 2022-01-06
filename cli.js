@@ -9,15 +9,13 @@ const rl = readline.createInterface({
 });
 console.log(`Temperature is ${thermostat.getTemperature()}`)
 
-var recursiveAsyncReadLine = function () {rl.question('Enter up or down ', (answer) => {
-    if (`${answer}` == 'up'){
-        thermostat.up()
-    }else if(`${answer}` == 'down'){
-        thermostat.down()
-    }
-  console.log(`${thermostat.getTemperature()}`);
-  recursiveAsyncReadLine();
+const recursiveAsyncReadLine = () => {
+  rl.question('Enter up or down ', (answer) => {
+    if (answer === 'up') thermostat.up();
+    if (answer === 'down') thermostat.down();
+    if (answer === "exit") return rl.close();
+    console.log(`${thermostat.getTemperature()}`);
+    recursiveAsyncReadLine();
 });}
 
 recursiveAsyncReadLine();
-
