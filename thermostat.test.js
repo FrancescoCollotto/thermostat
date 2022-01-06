@@ -38,4 +38,12 @@ describe('Thermostat', () => {
     thermostat.reset()
     expect(thermostat.getTemperature()).toBe(20);
   })
+
+  it('should have a minimum temperature of 10', () => {
+    thermostat.reset()
+    for (let i = 0 ; i < 15 ; i++) {
+      thermostat.down();
+    }
+    expect(thermostat.getTemperature()).toBe(10);
+  })
 })
