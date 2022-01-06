@@ -15,4 +15,11 @@ describe('Thermostat', () => {
     thermostat.down();
     expect(thermostat.getTemperature()).toBe(20);
   })
+
+  it('should have a maximum temperature of 25', () => {
+    for (let i = 0 ; i < 10 ; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getTemperature()).toBe(25);
+  })
 })
