@@ -1,4 +1,4 @@
-const Thermostat = require('./thermostat');
+const Thermostat = require("./thermostat");
 const thermostat = new Thermostat();
 
 describe('Thermostat', () => {

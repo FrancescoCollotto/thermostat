@@ -1,8 +1,19 @@
+require('dotenv').config()
+
 class Thermostat {
-  constructor() {
+  constructor(weatherApi) {
     this.temperature = 20;
     this.maxTemperature = 25;
     this.minTemperature = 10;
+    this.weather = weatherApi;
+  }
+
+  setCity(city) {
+    this.weather.fetchWeatherData(city, (data) => {
+      this.temperature = data.main.temp;
+      console.log(this);
+
+    })
   }
 
   getTemperature() {
